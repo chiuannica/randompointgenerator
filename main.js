@@ -4,11 +4,11 @@ var p1TotalPts = 0, p2TotalPts = 0;
 var p1, p2;
 var i;
 
-//
+//Get a random number 0 and up to max
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
-
+//Basketball shots are worth 1-3, player may have lost ball
 bballPt = getRandomInt(4);
 
 function p1Round(bballPt){
