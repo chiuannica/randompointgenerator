@@ -106,31 +106,54 @@ function p2(){
 p1();
 p2();
 
-
-var k;
-for(k = 0; k < rounds; k++){
-  var roundNum = k + 1;
-  var makeTr, makeTd, innerTd;
-  var findId;
-  var l;
+function makeTable() {
+  var k;
   makeTr = document.createElement("tr");
 
   makeTd = document.createElement("td");
   makeTr.appendChild(makeTd);
-  innerTd = document.createTextNode("Round " + roundNum);
+  innerTd = document.createTextNode("Round");
   makeTd.appendChild(innerTd);
 
   makeTd = document.createElement("td");
   makeTr.appendChild(makeTd);
-  innerTd = document.createTextNode(p1list[k]);
+  innerTd = document.createTextNode(p1.name);
   makeTd.appendChild(innerTd);
 
   makeTd = document.createElement("td");
   makeTr.appendChild(makeTd);
-  innerTd = document.createTextNode(p2list[k]);
+  innerTd = document.createTextNode(p2.name);
   makeTd.appendChild(innerTd);
-
 
   findId = document.getElementById("tbl");
+
   findId.appendChild(makeTr);
+  for(k = 0; k < rounds; k++){
+    var roundNum = k + 1;
+    var makeTr, makeTd, innerTd;
+    var findId;
+    var l;
+
+    makeTr = document.createElement("tr");
+
+    makeTd = document.createElement("td");
+    makeTr.appendChild(makeTd);
+    innerTd = document.createTextNode(roundNum);
+    makeTd.appendChild(innerTd);
+
+    makeTd = document.createElement("td");
+    makeTr.appendChild(makeTd);
+    innerTd = document.createTextNode(p1list[k]);
+    makeTd.appendChild(innerTd);
+
+    makeTd = document.createElement("td");
+    makeTr.appendChild(makeTd);
+    innerTd = document.createTextNode(p2list[k]);
+    makeTd.appendChild(innerTd);
+
+    findId = document.getElementById("tbl");
+
+    findId.appendChild(makeTr);
+  }
 }
+makeTable();
