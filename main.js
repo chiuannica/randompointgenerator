@@ -106,18 +106,31 @@ function p2(){
 p1();
 p2();
 
-document.getElementById("temp").innerHTML = "p1's sequence: " + p1list;
-document.getElementById("temp2").innerHTML = "p2's sequence: " + p2list;
-document.getElementById("p1name").innerHTML = p1.name;
-document.getElementById("p2name").innerHTML = p2.name;
+
+var k;
+for(k = 0; k < rounds; k++){
+  var roundNum = k + 1;
+  var makeTr, makeTd, innerTd;
+  var findId;
+  var l;
+  makeTr = document.createElement("tr");
+
+  makeTd = document.createElement("td");
+  makeTr.appendChild(makeTd);
+  innerTd = document.createTextNode("Round " + roundNum);
+  makeTd.appendChild(innerTd);
+
+  makeTd = document.createElement("td");
+  makeTr.appendChild(makeTd);
+  innerTd = document.createTextNode(p1list[k]);
+  makeTd.appendChild(innerTd);
+
+  makeTd = document.createElement("td");
+  makeTr.appendChild(makeTd);
+  innerTd = document.createTextNode(p2list[k]);
+  makeTd.appendChild(innerTd);
 
 
-for(j = 0; j < rounds; j++){
-  var roundNum = j + 1
-  var makeP = document.createElement("p");
-  var node = document.createTextNode("Round " + roundNum + " | " + p1list[j] + " | " + p2list[j]);
-  makeP.appendChild(node);
-
-  var findId = document.getElementById("top");
-  findId.appendChild(makeP);
+  findId = document.getElementById("tbl");
+  findId.appendChild(makeTr);
 }
