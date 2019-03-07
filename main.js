@@ -2,7 +2,8 @@ var bballPt;
 var roundPts = 0;
 var p1TotalPts = 0, p2TotalPts = 0;
 var p1, p2;
-var i;
+var i, j;
+var p1list = [], p2list = [];
 
 //Get a random number 0 and up to max
 function getRandomInt(max) {
@@ -17,7 +18,7 @@ function p1Round(bballPt){
     threePt: 0.4,
     twoPt: 0.5,
     onePt: 0.8,
-    name: "Player1"
+    name: "Freddie Fredderson"
   };
 
   if (bballPt == 3){
@@ -43,6 +44,7 @@ function p1Round(bballPt){
     roundPts = 0;
   }
   return roundPts;
+  document.getElementById("p1").innerHTML = "Hello?"
 }
 function p2Round(bballPt){
   var madeit = Math.random();
@@ -51,7 +53,7 @@ function p2Round(bballPt){
     threePt: 0.3,
     twoPt: 0.7,
     onePt: 0.9,
-    name: "PLayer2"
+    name: "Johnny Johnson"
   };
 
   if (bballPt == 3){
@@ -80,27 +82,35 @@ function p2Round(bballPt){
 }
 
 function p1(){
-  print("Player 1's points: ");
   for(i = 0; i < 8; i++){
     var p1RoundPts;
     var p1GoesFor = getRandomInt(4);
 
     p1RoundPts = p1Round(p1GoesFor);
     p1TotalPts += p1RoundPts;
-    print(p1TotalPts);
+    p1list.push(p1TotalPts);
   }
 }
 function p2(){
-  print("Player 2's points: ");
   for(i = 0; i < 8; i++){
     var p2RoundPts;
     var p2GoesFor = getRandomInt(4);
 
     p2RoundPts = p2Round(p2GoesFor);
     p2TotalPts += p2RoundPts;
-    print(p2TotalPts);
+    p2list.push(p2TotalPts);
   }
 }
 
 p1();
 p2();
+
+document.getElementById("temp").innerHTML = "p1's sequence: " + p1list[0];
+document.getElementById("temp2").innerHTML = "p2's sequence: " + p2list;
+document.getElementById("p1name").innerHTML = p1.name;
+document.getElementById("p2name").innerHTML = p2.name;
+
+for(j = 0; j < 8; j++){
+  document.getElementById("a").innerHTML = p1list[j]
+  document.getElementById("b").innerHTML = p2list[j]
+}
