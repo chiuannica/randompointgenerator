@@ -4,6 +4,7 @@ var p1TotalPts = 0, p2TotalPts = 0;
 var p1, p2;
 var i, j;
 var p1list = [], p2list = [];
+var rounds = 10;
 
 //Get a random number 0 and up to max
 function getRandomInt(max) {
@@ -82,7 +83,7 @@ function p2Round(bballPt){
 }
 
 function p1(){
-  for(i = 0; i < 8; i++){
+  for(i = 0; i < rounds; i++){
     var p1RoundPts;
     var p1GoesFor = getRandomInt(4);
 
@@ -92,7 +93,7 @@ function p1(){
   }
 }
 function p2(){
-  for(i = 0; i < 8; i++){
+  for(i = 0; i < rounds; i++){
     var p2RoundPts;
     var p2GoesFor = getRandomInt(4);
 
@@ -105,12 +106,18 @@ function p2(){
 p1();
 p2();
 
-document.getElementById("temp").innerHTML = "p1's sequence: " + p1list[0];
+document.getElementById("temp").innerHTML = "p1's sequence: " + p1list;
 document.getElementById("temp2").innerHTML = "p2's sequence: " + p2list;
 document.getElementById("p1name").innerHTML = p1.name;
 document.getElementById("p2name").innerHTML = p2.name;
 
-for(j = 0; j < 8; j++){
-  document.getElementById("a").innerHTML = p1list[j]
-  document.getElementById("b").innerHTML = p2list[j]
+
+for(j = 0; j < rounds; j++){
+  var roundNum = j + 1
+  var makeP = document.createElement("p");
+  var node = document.createTextNode("Round " + roundNum + " | " + p1list[j] + " | " + p2list[j]);
+  makeP.appendChild(node);
+
+  var findId = document.getElementById("top");
+  findId.appendChild(makeP);
 }
