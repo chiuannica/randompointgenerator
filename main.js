@@ -6,6 +6,17 @@ var i, j;
 var p1list = [], p2list = [];
 var rounds = 10;
 
+function percents(){
+  per1 = document.getElementById('percent1').value;
+  document.getElementById("value1").innerHTML = per1 + "%";
+  per2 = document.getElementById('percent2').value;
+  document.getElementById("value2").innerHTML = per2 + "%";
+  per3 = document.getElementById('percent3').value;
+  document.getElementById("value3").innerHTML = per3 + "%";
+}
+percents();
+
+
 //Get a random number 0 and up to max
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
@@ -16,9 +27,9 @@ bballPt = getRandomInt(4);
 function p1Round(bballPt){
   var madeit = Math.random();
   p1 = {
-    threePt: 0.4,
-    twoPt: 0.5,
-    onePt: 0.8,
+    threePt: per1/100,
+    twoPt: per2/100,
+    onePt: per3/100,
     name: "Freddie Fredderson"
   };
 
@@ -102,12 +113,11 @@ function p2(){
     p2list.push(p2TotalPts);
   }
 }
-
-p1();
-p2();
-
 function makeTable() {
   var k;
+  var makeTr, makeTd, innerTd;
+  var findId;
+
   makeTr = document.createElement("tr");
 
   makeTd = document.createElement("td");
@@ -130,9 +140,6 @@ function makeTable() {
   findId.appendChild(makeTr);
   for(k = 0; k < rounds; k++){
     var roundNum = k + 1;
-    var makeTr, makeTd, innerTd;
-    var findId;
-    var l;
 
     makeTr = document.createElement("tr");
 
@@ -156,4 +163,12 @@ function makeTable() {
     findId.appendChild(makeTr);
   }
 }
-makeTable();
+
+function reload(){
+  alert(p1.threePt);
+  percents();
+  p1();
+  p2();
+  makeTable();
+}
+reload();
