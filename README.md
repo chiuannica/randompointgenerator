@@ -1,8 +1,8 @@
 # stephcurrysimulator
-A basketball game simulator
+A basketball game point generator
 
-Hello. This is a basketball simulator that has two players. Each player has different stats, percentages for three pointers,
-two pointers, and three pointers.
+Hello. This generator has two players. Each player has different stats, percentages for three pointers,
+two pointers, and one pointers.
 
 You can change the stats and regenerate the table.
 
