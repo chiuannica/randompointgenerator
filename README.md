@@ -1,4 +1,4 @@
-#randompointgenerator
+
 A basketball game point generator
 
 Hello. This generator has two players. Each player has different stats, percentages for three pointers,
