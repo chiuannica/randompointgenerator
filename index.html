@@ -2,36 +2,52 @@
 <head>
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/css" href="static/style.css">
-<title>Steph Curry Simulator</title>
+<title>Random Basketball Points Generator</title>
 </head>
 <body>
-	<h1>Steph Curry Simulator</h1>
+	<h1>Random Basketball Points Generator</h1>
 	<div id="top">
-		<p>Welcome to Steph Curry Simulator</p>
+		<p>Edit Information:</p>
 	</div>
-	<div id="stats">
+	<div id="info">
 		<table>
 			<tr>
 				<th>Shot</th>
+				<td>Name</td>
 				<td>3 Point</td>
 				<td>2 Point</td>
 				<td>1 Point</td>
 			</tr>
 			<tr>
-				<th>Stats</th>
+				<th>Player 1</th>
+				<td><input id="name1" type="text" value="Bob Bobberson" onchange="info()"></input></td>
+				<td><input id="percent1" type="range" min="0" max="100" value="50" onchange="info()"></td>
+				<td><input id="percent2" type="range" min="0" max="100" value="60" onchange="info()"></td>
+				<td><input id="percent3" type="range" min="0" max="100" value="90" onchange="info()"></td>
+			</tr>
+			<tr>
+				<th></th>
+				<td></td>
 				<td id="value1"></td>
 				<td id="value2"></td>
 				<td id="value3"></td>
 			</tr>
 			<tr>
-				<th>Change Stats</th>
-				<td><input id="percent1" type="range" min="0" max="100" value="50"></td>
-				<td><input id="percent2" type="range" min="0" max="100" value="60"></td>
-				<td><input id="percent3" type="range" min="0" max="100" value="90"></td>
+				<th>Player 2</th>
+				<td><input id="name2" type="text" value="Bobby Bobbalicious" onchange="info()"></input></td>
+				<td><input id="percent4" type="range" min="0" max="100" value="60" onchange="info()"></td>
+				<td><input id="percent5" type="range" min="0" max="100" value="50" onchange="info()"></td>
+				<td><input id="percent6" type="range" min="0" max="100" value="20" onchange="info()"></td>
+			</tr>
+			<tr>
+				<th></th>
+				<td></td>
+				<td id="value4"></td>
+				<td id="value5"></td>
+				<td id="value6"></td>
 			</tr>
 		</table>
-		<button onclick="percents()">Update Stats</button>
-		<button onclick="reload()">coming soon</button>
+		<button onclick="newstatsnewtable()">coming soon</button>
 	</div>
 	<div id="tbls">
 		<table id="tbl">

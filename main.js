@@ -6,18 +6,27 @@ var i, j;
 var p1list = [], p2list = [];
 var rounds = 10;
 
+
 /*
 Get user input for 3/2/1 pt rate i.e. 45% 3pt like Steph Curry
 */
-function percents(){
-  per1 = document.getElementById('percent1').value;
-  document.getElementById("value1").innerHTML = per1 + "%";
+function info(){
+  per1 = document.getElementById('percent1').value;          //get user input
   per2 = document.getElementById('percent2').value;
-  document.getElementById("value2").innerHTML = per2 + "%";
   per3 = document.getElementById('percent3').value;
+  per4 = document.getElementById('percent4').value;
+  per5 = document.getElementById('percent5').value;
+  per6 = document.getElementById('percent6').value;
+  name1 = document.getElementById('name1').value;
+  name2 = document.getElementById('name2').value;
+
+  document.getElementById("value1").innerHTML = per1 + "%";  //show user input
+  document.getElementById("value2").innerHTML = per2 + "%";
   document.getElementById("value3").innerHTML = per3 + "%";
-}
-percents();
+  document.getElementById("value4").innerHTML = per4 + "%";
+  document.getElementById("value5").innerHTML = per5 + "%";
+  document.getElementById("value6").innerHTML = per6 + "%";
+};
 
 
 //Get a random number 0 and up to max
@@ -38,7 +47,7 @@ function p1Round(bballPt){
     threePt: per1/100, //user input for player's stats
     twoPt: per2/100,
     onePt: per3/100,
-    name: "Freddie Fredderson"
+    name: name1
   };
 
   if (bballPt == 3){
@@ -64,7 +73,6 @@ function p1Round(bballPt){
     roundPts = 0;
   }
   return roundPts;
-  document.getElementById("p1").innerHTML = "Hello?"
 }
 
 /*
@@ -75,10 +83,10 @@ function p2Round(bballPt){
   var madeit = Math.random();
 
   p2 = {
-    threePt: 0.3,
-    twoPt: 0.7,
-    onePt: 0.9,
-    name: "Johnny Johnson"
+    threePt: per4/100,
+    twoPt: per5/100,
+    onePt: per6/100,
+    name: name2
   };
 
   if (bballPt == 3){
@@ -111,7 +119,7 @@ function p1(){
     var p1RoundPts;
     var p1GoesFor = getRandomInt(4); //Randomly decides if p1 goes for a 1, 2, or 3 pt
 
-    p1RoundPts = p1Round(p1GoesFor); //Determines if p1 made it or not
+    p1RoundPts = p1Round(p1GoesFor); //Determines points made for a round
     p1TotalPts += p1RoundPts;
     p1list.push(p1TotalPts);         //Adds round points to list of points
   }
@@ -176,18 +184,18 @@ function makeTable() {
     findId.appendChild(makeTr);                //attach the row to the table
   }
 }
-/*
-this function calls all of the functions
-
-hopefully one day, I will be able to call
-this function and generate a new table
-with different values. but i am a potato
-*/
-function reload(){
-  alert(p1.threePt);
-  percents();
+function callallfuncs(){
+  info();
   p1();
   p2();
   makeTable();
 }
-reload();
+callallfuncs();
+
+function newstatsnewtable(){
+  p1list = [];
+  p2list = [];
+  info();
+
+  makeTable();
+}
