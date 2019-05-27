@@ -1,3 +1,9 @@
+/*
+light purple #dcccff
+pretty green #9cc5a1
+darker green #2A4337
+*/
+
 @font-face {
   font-family: 'Roboto';
   src: url(RobotoSlab-Thin.ttf);
@@ -5,7 +11,8 @@
 html{
 	font-family: 'Roboto', sans-serif;
   font-size: 14pt;
-  background: gray;
+  background: #dcccff;
+  color:  #2A4337;
 }
 p{
   font-size: 18pt;
@@ -15,15 +22,20 @@ button{
   font-size: 14pt;
 }
 td{
-  text-align: center;
+  text-align: ;
+  border: ;
 }
 
 #tbl{
-  font-size: 18pt;
-  text-align: center;
-  background: pink;
+  font-size: 24pt;
+  background: transparent;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 20px;
+  padding: 0px;
+}
+#tbl th{
+  text-decoration: underline;
 }
 #info{
   font-size: 18pt;

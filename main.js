@@ -3,7 +3,7 @@ var roundPts = 0;
 var p1TotalPts = 0, p2TotalPts = 0;
 var p1, p2;
 var i, j;
-var p1list = [], p2list = [];
+
 var rounds = 10;
 
 
@@ -29,22 +29,27 @@ function info(){
 };
 
 
-//Get a random number 0 and up to max
+//Get a random number 0 and up to max (non-inclusive)
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
 
-//Basketball shots are worth 1-3, player may have lost ball
-bballPt = getRandomInt(4);
-
 /*
 function for player 1 that randomly determines if
-they made the shot and how many points they get
+they made the shot and how many points they get for 1 round
 */
 function p1Round(bballPt){
   var madeit = Math.random();
-  p1 = {
-    threePt: per1/100, //user input for player's stats
+  /*
+  Madeit is a random number 0 to 1. Math.random gets a random number,
+  then it gets compared to the stats. If the random number is greater, then
+  it made it. If it is less, then it was a miss.
+
+  i.e. madeit = 0.45. bballPt = 3 (also randomly generated), so the player went for a 3pt shot.
+  p1's 3pt stat is 0.4. That means p1 missed.
+  */
+  p1 = {               //p1's stats taken from user input
+    threePt: per1/100,
     twoPt: per2/100,
     onePt: per3/100,
     name: name1
@@ -77,12 +82,14 @@ function p1Round(bballPt){
 
 /*
 function for player 2 that randomly determines if
-they made the shot and how many points they get
+they made the shot and how many points they get for 1 round.
 */
 function p2Round(bballPt){
   var madeit = Math.random();
-
-  p2 = {
+  /*
+  same as p1Round()
+  */
+  p2 = {                            //p2's stats
     threePt: per4/100,
     twoPt: per5/100,
     onePt: per6/100,
@@ -115,23 +122,25 @@ function p2Round(bballPt){
 }
 
 function p1(){
-  for(i = 0; i < rounds; i++){
+  p1list = [];                       //p1list starts empty. p1list is the list of total points
+  for(i = 0; i < rounds; i++){       //repeats round number of times
     var p1RoundPts;
-    var p1GoesFor = getRandomInt(4); //Randomly decides if p1 goes for a 1, 2, or 3 pt
+    var p1GoesFor = getRandomInt(4); //Randomly decides if p1 goes for a 1, 2, 3 pt, or loses ball
 
     p1RoundPts = p1Round(p1GoesFor); //Determines points made for a round
-    p1TotalPts += p1RoundPts;
-    p1list.push(p1TotalPts);         //Adds round points to list of points
+    p1TotalPts += p1RoundPts;        //Adds points gained to total points
+    p1list.push(p1TotalPts);         //Adds total points to list of total points
   }
 }
 function p2(){
-  for(i = 0; i < rounds; i++){
-    var p2RoundPts;
-    var p2GoesFor = getRandomInt(4);
+  p2list = [];                       //p2list starts empty. p2list is the lost of total points
+  for(i = 0; i < rounds; i++){       //Finds points for whatever number of rounds.
+    var p2RoundPts;                  //Points for this round
+    var p2GoesFor = getRandomInt(4); //Determines what p2 goes for (0 [lose ball], 1 , 2, 3)
 
-    p2RoundPts = p2Round(p2GoesFor);
-    p2TotalPts += p2RoundPts;
-    p2list.push(p2TotalPts);
+    p2RoundPts = p2Round(p2GoesFor); //Determines if player made it based on stats
+    p2TotalPts += p2RoundPts;        //Adds points gained to total points
+    p2list.push(p2TotalPts);         //Adds total points to list of total points
   }
 }
 function makeTable() {
@@ -141,17 +150,17 @@ function makeTable() {
 
   makeTr = document.createElement("tr");       //1st row of table
 
-  makeTd = document.createElement("td");       //column header for the rounds (1, 2, 3, ... 10, ... 9001)
+  makeTd = document.createElement("th");       //column header for the rounds (1, 2, 3, ... 10, ... 9001)
   makeTr.appendChild(makeTd);                     //Attach this to 1st row
   innerTd = document.createTextNode("Round");     //Call it round
   makeTd.appendChild(innerTd);                    //Attach the inside contents ("Round") to column 1
 
-  makeTd = document.createElement("td");       //column header for p1
+  makeTd = document.createElement("th");       //column header for p1
   makeTr.appendChild(makeTd);
   innerTd = document.createTextNode(p1.name);
   makeTd.appendChild(innerTd);
 
-  makeTd = document.createElement("td");       //column header for p2
+  makeTd = document.createElement("th");       //column header for p2
   makeTr.appendChild(makeTd);
   innerTd = document.createTextNode(p2.name);
   makeTd.appendChild(innerTd);
@@ -184,6 +193,7 @@ function makeTable() {
     findId.appendChild(makeTr);                //attach the row to the table
   }
 }
+//Call all of the functions
 function callallfuncs(){
   info();
   p1();
@@ -193,9 +203,15 @@ function callallfuncs(){
 callallfuncs();
 
 function newstatsnewtable(){
-  p1list = [];
-  p2list = [];
-  info();
-
-  makeTable();
+  p1list = [];                       //p1list starts empty. p1list is the list of total points
+/*
+  for(i = 0; i < rounds; i++){       //repeats round number of times
+    var p1RoundPts;
+    var p1GoesFor = getRandomInt(4); //Randomly decides if p1 goes for a 1, 2, 3 pt, or loses ball
+    p1RoundPts = p1Round(p1GoesFor); //Determines points made for a round
+    p1TotalPts += p1RoundPts;        //Adds points gained to total points
+    p1list.push(p1TotalPts);         //Adds total points to list of total points
+  }
+  */
+  alert("done");
 }
