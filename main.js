@@ -1,5 +1,8 @@
 var rounds = 10;
 
+//This function makes everything load up on the page
+callallfuncs();
+
 /*
 Get user input for 3/2/1 pt rate i.e. 45% 3pt like Steph Curry
 */
@@ -151,14 +154,17 @@ function p2(){
 }
 function makeTable() {
   var i;
-  var makeTr, makeTd, innerTd;
+  var makeTbl, makeTr, makeTd, innerTd;
   var findId;
 
+  makeTbl = document.createElement("table");   //make the table to hold everything
+  makeTbl.id = "results";                      //Table's id is result
+  //HEADER ROW
   makeTr = document.createElement("tr");       //1st row of table
 
   makeTd = document.createElement("th");       //column header for the rounds (1, 2, 3, ... 10, ... 9001)
   makeTr.appendChild(makeTd);                     //Attach this to 1st row
-  innerTd = document.createTextNode("Round");     //Call it round
+  innerTd = document.createTextNode("Round");     //The header's text is round
   makeTd.appendChild(innerTd);                    //Attach the inside contents ("Round") to column 1
 
   makeTd = document.createElement("th");       //column header for p1
@@ -171,9 +177,11 @@ function makeTable() {
   innerTd = document.createTextNode(p2.name);
   makeTd.appendChild(innerTd);
 
-  findId = document.getElementById("result");     //find the right table by ID
-  findId.appendChild(makeTr);                  //Attach all of that stuff ^ to the table
+  makeTbl.append(makeTr);                      //Attach header row to table
+  findId = document.getElementById("tbls");    //Find the ID of the div, tbls, which holds all tables
+  findId.appendChild(makeTbl);                 //Attach the table to the div tbls
 
+  //EACH ROW which holds the numbers from the 2 lists of total points
   for(i = 0; i < rounds; i++){                 //make a row for each round
     var roundNum = i + 1;
 
@@ -194,32 +202,36 @@ function makeTable() {
     innerTd = document.createTextNode(p2list[i]);
     makeTd.appendChild(innerTd);
 
-    findId = document.getElementById("result");   //identify the right table by ID
-
-    findId.appendChild(makeTr);                //attach the row to the table
+    makeTbl.appendChild(makeTr);
+    findId = document.getElementById("tbls"); //identify the right table by ID
+    findId.appendChild(makeTbl);                //attach the row to the table
   };
 }
 function makeStatTbl(){
-  var makeTr, makeTd, innerTd, findId;
-  makeTr = document.createElement("tr");       //1st row of table
+  var makeTbl, makeTr, makeTd, innerTd, findId;
 
-  makeTd = document.createElement("th");       //column header for the rounds (1, 2, 3, ... 10, ... 9001)
-  makeTr.appendChild(makeTd);                     //Attach this to 1st row
-  innerTd = document.createTextNode("Point Stat");     //Call it round
-  makeTd.appendChild(innerTd);                    //Attach the inside contents ("Round") to column 1
+  makeTbl = document.createElement("table");   //Create the table which holds everything
+  makeTbl.id = "stat";                         //Table's id is stat
+  //1ST ROW OF HEADERS
+  makeTr = document.createElement("tr");
 
-  makeTd = document.createElement("th");       //column header for p1
+  makeTd = document.createElement("th");       //Create column header
+  makeTr.appendChild(makeTd);                     //Attach the column header to the first row
+  innerTd = document.createTextNode("Point Stat");//The column header is "Point Stat"
+  makeTd.appendChild(innerTd);                    //Attach the inside contents to the column header
+
+  makeTd = document.createElement("th");       //Column header for p1
   makeTr.appendChild(makeTd);
-  innerTd = document.createTextNode(p1.name);
+  innerTd = document.createTextNode(p1.name + " (%)");
   makeTd.appendChild(innerTd);
 
-  makeTd = document.createElement("th");       //column header for p2
+  makeTd = document.createElement("th");       //Column header for p2
   makeTr.appendChild(makeTd);
-  innerTd = document.createTextNode(p2.name);
+  innerTd = document.createTextNode(p2.name + " (%)");
   makeTd.appendChild(innerTd);
 
-  findId = document.getElementById("stattbl");     //find the right table by ID
-  findId.appendChild(makeTr);                  //Attach all of that stuff ^ to the table
+  makeTbl.appendChild(makeTr);                //Attach the row to the table
+
   //2nd row
   makeTr = document.createElement("tr");     //make a row
 
@@ -238,9 +250,8 @@ function makeStatTbl(){
   innerTd = document.createTextNode(per4);
   makeTd.appendChild(innerTd);
 
-  findId = document.getElementById("stattbl");   //identify the right table by ID
+  makeTbl.appendChild(makeTr);                //Attach the row to the table
 
-  findId.appendChild(makeTr);
   //3rd row
   makeTr = document.createElement("tr");     //make a row
 
@@ -259,9 +270,8 @@ function makeStatTbl(){
   innerTd = document.createTextNode(per5);
   makeTd.appendChild(innerTd);
 
-  findId = document.getElementById("stattbl");   //identify the right table by ID
+  makeTbl.appendChild(makeTr);                //Attach the row to the table
 
-  findId.appendChild(makeTr);
   //4th row
   makeTr = document.createElement("tr");     //make a row
 
@@ -280,12 +290,14 @@ function makeStatTbl(){
   innerTd = document.createTextNode(per6);
   makeTd.appendChild(innerTd);
 
-  findId = document.getElementById("stattbl");   //identify the right table by ID
+  makeTbl.appendChild(makeTr);                //Attach the row to the table
 
-  findId.appendChild(makeTr);
+  findId = document.getElementById("tbls");   //Find the tbls div
+  findId.appendChild(makeTbl);                //Attach the table to the div
 }
 
-//Call all of the functions
+
+//Call all of the functions when page loads
 function callallfuncs(){
   info();
   p1();
@@ -293,8 +305,6 @@ function callallfuncs(){
   makeTable();
   makeStatTbl();
 }
-//This function makes everything happen
-callallfuncs();
 
 /*
 This function is called by a button to take the user's input
@@ -328,7 +338,6 @@ function newstatsnewtable(){
     p2TotalPts += p2RoundPts;        //Adds points gained to total points
     p2list.push(p2TotalPts);         //Adds total points to list of total points
   }
-  alert("Done");
   makeTable();
   makeStatTbl();
 }

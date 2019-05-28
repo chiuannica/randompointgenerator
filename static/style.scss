@@ -1,7 +1,8 @@
 :root {
+  --lpurple: hsl(259, 100%, 95%);
   --purple: hsl(259, 100%, 90%);
-  --lgreen: hsl(127, 26%, 70%);
   --llgreen: hsl(127, 26%, 80%);
+  --lgreen: hsl(127, 26%, 70%);
   --green: hsl(127, 26%, 50%);
   --dgreen: hsl(127, 26%, 30%);
 }
@@ -22,12 +23,14 @@ p{
 }
 input, text, select, button{
   width: 200px;
-  height: 25px;
+  height: auto;
   margin: 0;
   font-family: 'Roboto';
   font-size: 14pt;
+  text-align: center;
   background: var(--lgreen);
   border: 0px;
+  border-radius: 5px;
 
 
   -webkit-box-sizing: border-box;
@@ -50,18 +53,16 @@ Grid magic
 #tbls{
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
 }
-#result{
+#tbls table{
   font-size: 20pt;
-  background: transparent;
-  text-align: center;
-}
-#stattbl{
-  font-size: 20pt;
-  text-align: center;
   background: var(--llgreen);
-  height: result;
+  text-align: center;
+  border-radius: 10px;
+
 }
+
 #info{
   font-size: 18pt;
   margin-bottom: 20px;
@@ -70,6 +71,7 @@ Grid magic
   margin-left: auto;
   margin-right: auto;
   font-size: 14pt;
+  text-align: center;
 }
 
 #info td{
