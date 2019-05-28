@@ -1,0 +1,81 @@
+:root {
+  --lpurple: hsl(259, 100%, 95%);
+  --purple: hsl(259, 100%, 90%);
+  --llgreen: hsl(127, 26%, 80%);
+  --lgreen: hsl(127, 26%, 70%);
+  --green: hsl(127, 26%, 50%);
+  --dgreen: hsl(127, 26%, 30%);
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url(RobotoSlab-Thin.ttf);
+}
+html{
+	font-family: 'Roboto', sans-serif;
+  font-size: 14pt;
+  text-align: center;
+  background: var(--purple);
+  color:  var(--dgreen);
+  margin: 10px;
+}
+p{
+  font-size: 18pt;
+}
+input, text, select, button{
+  width: 200px;
+  height: auto;
+  margin: 0;
+  font-family: 'Roboto';
+  font-size: 14pt;
+  text-align: center;
+  background: var(--lgreen);
+  border: 0px;
+  border-radius: 5px;
+
+
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+button:hover{
+  background: var(--llgreen);
+}
+button:active{
+  background: var(--green);
+  box-shadow: 1px var(--lgreen);
+}
+input-range{
+
+}
+/*
+Grid magic
+*/
+#tbls{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+}
+#tbls table{
+  font-size: 20pt;
+  background: var(--llgreen);
+  text-align: center;
+  border-radius: 10px;
+
+}
+
+#info{
+  font-size: 18pt;
+  margin-bottom: 20px;
+}
+#info table{
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 14pt;
+  text-align: center;
+}
+
+#info td{
+  padding-left: 10px;
+  padding-right: 10px;
+
+}

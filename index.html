@@ -1,18 +1,18 @@
 <html>
 <head>
 <meta charset="utf-8">
-<link rel="stylesheet" type="text/css" href="static/style.css">
+<link rel="stylesheet" type="text/css" href="static/style.scss">
 <title>Random Basketball Points Generator</title>
 </head>
 <body>
-	<h1>Random Basketball Points Generator</h1>
 	<div id="top">
+		<h1>Random Basketball Points Generator</h1>
 		<p>Edit Information:</p>
 	</div>
 	<div id="info">
 		<table>
 			<tr>
-				<th>Shot</th>
+				<th>Information</th>
 				<td>Name</td>
 				<td>3 Point</td>
 				<td>2 Point</td>
@@ -20,7 +20,7 @@
 			</tr>
 			<tr>
 				<th>Player 1</th>
-				<td><input id="name1" type="text" value="Bob Bobberson" onchange="info()"></input></td>
+				<td><input id="name1" type="text" value="Park Jimin" onchange="info()"></input></td>
 				<td><input id="percent1" type="range" min="0" max="100" value="40" onchange="info()"></td>
 				<td><input id="percent2" type="range" min="0" max="100" value="60" onchange="info()"></td>
 				<td><input id="percent3" type="range" min="0" max="100" value="90" onchange="info()"></td>
@@ -34,7 +34,7 @@
 			</tr>
 			<tr>
 				<th>Player 2</th>
-				<td><input id="name2" type="text" value="Bobby Bobbalicious" onchange="info()"></input></td>
+				<td><input id="name2" type="text" value="Jung Hoseok" onchange="info()"></input></td>
 				<td><input id="percent4" type="range" min="0" max="100" value="40" onchange="info()"></td>
 				<td><input id="percent5" type="range" min="0" max="100" value="40" onchange="info()"></td>
 				<td><input id="percent6" type="range" min="0" max="100" value="20" onchange="info()"></td>
@@ -47,12 +47,10 @@
 				<td id="value6"></td>
 			</tr>
 		</table>
-		<button onclick="newstatsnewtable()">coming soon</button>
+		<button onclick="newstatsnewtable()">Generate New Table</button>
 	</div>
-	<div id="tbls">
-		<table id="tbl">
-		</table>
-	</div>
+
+	<div id="tbls"></div>
 
 </body>
 <script src="main.js"></script>
