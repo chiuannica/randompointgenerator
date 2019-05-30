@@ -1,9 +1,7 @@
+This is a basketball point generator that takes stats and the power of probability to generate a table.
 
-A basketball game point generator
+There are ten rounds. Each round, two players could add either 3, 2, 1, or no points to their total points.
 
-Hello. This generator has two players. Each player has different stats, percentages for three pointers,
-two pointers, and one pointers.
+The user can change the stats and name of the players and generate a new table.
 
-You can change the stats and regenerate the table.
-
-In basketball, if you miss your shot, the other team gets a chance to score, and it continues.
+This generator has no real purpose.
