@@ -1,10 +1,13 @@
 :root {
+  --white: #fff;
+  --black: #474B49;
   --lpurple: hsl(259, 100%, 95%);
   --purple: hsl(259, 100%, 90%);
-  --llgreen: hsl(127, 26%, 80%);
+  --dpurple: hsl(259, 100%, 85%);
+  --llgreen: hsl(127, 26%, 75%);
   --lgreen: hsl(127, 26%, 70%);
-  --green: hsl(127, 26%, 50%);
-  --dgreen: hsl(127, 26%, 30%);
+  --green: hsl(127, 26%, 60%);
+  --dgreen: hsl(127, 26%, 40%);
 }
 @font-face {
   font-family: 'Roboto';
@@ -15,7 +18,7 @@ html{
   font-size: 14pt;
   text-align: center;
   background: var(--purple);
-  color:  var(--dgreen);
+  color:  var(--black);
   margin: 10px;
 }
 p{
@@ -26,16 +29,21 @@ input, text, select, button{
   height: auto;
   margin: 0;
   font-family: 'Roboto';
+  color: var(--black);
   font-size: 14pt;
   text-align: center;
-  background: var(--lgreen);
+  background: var(--lpurple);
   border: 0px;
-  border-radius: 5px;
+  border-radius: 7.5px;
 
 
   -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
           box-sizing: border-box;
+}
+button{
+  cursor: pointer;
+  background: var(--lgreen);
 }
 button:hover{
   background: var(--llgreen);
@@ -44,9 +52,37 @@ button:active{
   background: var(--green);
   box-shadow: 1px var(--lgreen);
 }
-input-range{
-
+.slider {
+  -webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
+  width: 100%;
+  height: 13px;
+  background: var(--white);
+  outline: none;
+  opacity: 0.6;
+  -webkit-transition: .1s;
+  transition: opacity .1s;
+  cursor: pointer;
 }
+.slider:hover {
+  opacity: 0.9;
+}
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--dpurple);
+}
+
+.slider::-moz-range-thumb {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--dpurple);
+}
+
 /*
 Grid magic
 */
@@ -66,16 +102,18 @@ Grid magic
 #info{
   font-size: 18pt;
   margin-bottom: 20px;
+  width: 100%;
 }
 #info table{
   margin-left: auto;
   margin-right: auto;
   font-size: 14pt;
   text-align: center;
+  cursor: default;
 }
 
 #info td{
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
 
 }
