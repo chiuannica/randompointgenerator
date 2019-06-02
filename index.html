@@ -2,28 +2,30 @@
 <head>
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/css" href="static/style.scss">
+<link rel="icon" href="/static/basketball.png">
 <title>Random Basketball Points Generator</title>
 </head>
 <body>
 	<div id="top">
 		<h1>Random Basketball Points Generator</h1>
-		<p>Edit Information:</p>
+		<img src="/static/basketball.png" width="50px" class="spin">
+		<h2>Edit Information:</h2>
 	</div>
 	<div id="info">
 		<table>
 			<tr>
-				<th>Information</th>
-				<td>Name</td>
-				<td>3 Point</td>
-				<td>2 Point</td>
-				<td>1 Point</td>
+				<td></td>
+				<th>Name</th>
+				<th>3 Point</th>
+				<th>2 Point</th>
+				<th>1 Point</th>
 			</tr>
 			<tr>
 				<th>Player 1</th>
 				<td><input id="name1" type="text" value="Park Jimin" onchange="info()"></input></td>
-				<td><input id="percent1" type="range" min="0" max="100" value="40" onchange="info()"></td>
-				<td><input id="percent2" type="range" min="0" max="100" value="60" onchange="info()"></td>
-				<td><input id="percent3" type="range" min="0" max="100" value="90" onchange="info()"></td>
+				<td><input id="percent1" class="slider" type="range" min="0" max="100" value="40" onchange="info()"></td>
+				<td><input id="percent2" class="slider" type="range" min="0" max="100" value="60" onchange="info()"></td>
+				<td><input id="percent3" class="slider" type="range" min="0" max="100" value="90" onchange="info()"></td>
 			</tr>
 			<tr>
 				<th></th>
@@ -35,9 +37,9 @@
 			<tr>
 				<th>Player 2</th>
 				<td><input id="name2" type="text" value="Jung Hoseok" onchange="info()"></input></td>
-				<td><input id="percent4" type="range" min="0" max="100" value="40" onchange="info()"></td>
-				<td><input id="percent5" type="range" min="0" max="100" value="40" onchange="info()"></td>
-				<td><input id="percent6" type="range" min="0" max="100" value="20" onchange="info()"></td>
+				<td><input id="percent4" class="slider" type="range" min="0" max="100" value="40" onchange="info()"></td>
+				<td><input id="percent5" class="slider" type="range" min="0" max="100" value="40" onchange="info()"></td>
+				<td><input id="percent6" class="slider" type="range" min="0" max="100" value="20" onchange="info()"></td>
 			</tr>
 			<tr>
 				<th></th>
